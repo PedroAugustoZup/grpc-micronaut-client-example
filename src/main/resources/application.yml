@@ -1,3 +1,32 @@
 micronaut:
   application:
     name: grpcMicronautClientExample
+
+
+#CONEXÃO COM BANCO
+datasources:
+  default:
+    url: jdbc:mysql://localhost:3306/grpc_cliente?createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=UTC
+    username: root
+    password: "pede99"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#hibernate
+jpa:
+  show-sql: true
+  hibernate:
+    ddl-auto: update
+    naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+
+grpc:
+  client:
+    plaintext: true
+    max-retry-attempts: 10
+  channels:
+    fretes:
+      address: localhost:50051
+      plaintext: true
+      max-retry-attempts: 5
