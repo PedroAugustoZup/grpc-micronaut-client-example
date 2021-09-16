@@ -1,4 +1,4 @@
-package br.com.zup.controller.repository
+package br.com.zup.repository
 
 import br.com.zup.model.Compra
 import io.micronaut.data.annotation.Repository
